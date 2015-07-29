@@ -1,5 +1,8 @@
-forge "https://forge.puppetlabs.com"
+forge "https://forgeapi.puppetlabs.com"
 
-mod "hd/base",
+# Just about everything uses apt
+mod 'puppetlabs/apt', '2.1.1'
+
+mod "thd/base",
   :path => "myModules/base"
 
