@@ -11,7 +11,13 @@ PATH
     thd-base (0.0.1)
       puppetlabs-stdlib (>= 0)
 
+PATH
+  remote: myModules/ssl_cert
+  specs:
+    thd-ssl_cert (0.0.1)
+
 DEPENDENCIES
   puppetlabs-apt (= 2.1.1)
   thd-base (>= 0)
+  thd-ssl_cert (>= 0)
 
