@@ -1,0 +1,29 @@
+# MANAGED BY PUPPET
+# Only for relaying mail sent locally, that's the only purpose
+# Set up TLS for sending
+
+#TODO: enable TLS when we have certs
+#smtp_tls_cert_file = /etc/ssl/certs/hdbuild.crt
+#smtp_tls_key_file = /etc/ssl/keys/hdbuild.key
+#smtp_use_tls = yes
+
+myhostname = <%= @fqdn %>
+# I want to be explicit that it comes from this host
+myorigin = $myhostname
+
+# we don't have a relay host for our mail
+# Make sure we don't relay any mail for other hosts
+mynetworks_style = host
+relay_domains =
+
+inet_interfaces = loopback-only
+# this is supposed to be blank
+mydestination =
+
+#Sendgrid relay configuration
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_password
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_level = encrypt
+header_size_limit = 4096000
+relayhost = [smtp.sendgrid.net]:2525

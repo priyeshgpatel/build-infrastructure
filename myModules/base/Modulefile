@@ -1,0 +1,7 @@
+name 'thd-base'
+version '0.0.1'
+
+author 'David Kowis'
+
+dependency 'puppetlabs/stdlib'
+dependency 'thd/ssl_cert'
