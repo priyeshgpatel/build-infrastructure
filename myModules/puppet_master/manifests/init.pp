@@ -14,7 +14,7 @@ class puppet_master {
   }
 
   exec{ "/usr/sbin/a2enmod ssl":
-    require => Package["libapache2-mod-passenger"],
+    require => Package["puppetmaster-passenger"],
     creates => "/etc/apache2/mods-enabled/ssl.load",
   }
 
