@@ -8,16 +8,15 @@ class puppet_master {
     provider => 'gem',
   }
 
-  # a puppetlabs provided package that includes passenger and pre configures all the things, woot
+# a puppetlabs provided package that includes passenger and pre configures all the things, woot
   package{ "puppetmaster-passenger":
     ensure => present,
   }
 
-# TODO: get SSL certs
-#exec{ "/usr/sbin/a2enmod ssl":
-#  require => Package["libapache2-mod-passenger"],
-#  creates => "/etc/apache2/mods-enabled/ssl.load",
-#}
+  exec{ "/usr/sbin/a2enmod ssl":
+    require => Package["libapache2-mod-passenger"],
+    creates => "/etc/apache2/mods-enabled/ssl.load",
+  }
 
   exec{ "/usr/sbin/a2enmod headers":
     require => Package["puppetmaster-passenger"],
