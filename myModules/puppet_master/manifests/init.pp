@@ -30,8 +30,7 @@ class puppet_master {
 
   exec{ "/usr/sbin/a2ensite puppetmaster":
     require => [
-      Package["puppetmaster-passenger"],
-      File["/etc/apache2/sites-available/puppetmaster"]
+      Package["puppetmaster-passenger"]
     ],
     creates => "/etc/apache2/sites-enabled/puppetmaster",
   }
