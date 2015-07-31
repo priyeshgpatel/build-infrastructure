@@ -14,7 +14,7 @@ dpkg -i puppetlabs-release-wheezy.deb
 apt-get update
 
 # install the stuff
-apt-get install -y git ruby1.9.1-dev make puppetmaster-passenger &&
+apt-get install -y git ruby1.9.1-dev make puppet puppetmaster-passenger &&
 
 if [[ "$(facter fqdn)" == "" ]]; then
   echo "UNABLE TO PROCEED, puppet cannot find a hostname, ensure `facter fqdn` returns a hostname"
