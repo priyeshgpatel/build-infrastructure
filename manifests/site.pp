@@ -9,7 +9,7 @@ Firewall {
 }
 
 # puppetmaster node
-node 'test-puppetmaster.c.hd-build.internal' {
+node 'puppetmaster.c.hd-build.internal' {
   include base
   include puppet_master
 }
