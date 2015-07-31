@@ -13,3 +13,8 @@ node 'puppetmaster.c.hd-build.internal' {
   include base
   include puppet_master
 }
+
+node 'jenkins-master.c.hd-build.internal' {
+  include base
+  
+}
