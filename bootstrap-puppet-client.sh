@@ -17,6 +17,14 @@ apt-get update &&
 # install the stuff
 apt-get install -y puppet  &&
 
+# Set up the puppet.conf file to point to the proper puppet master
+
+cat <<EOF >> /etc/puppet/puppet.conf
+[agent]
+     server = puppetmaster.c.hd-build.internal
+
+EOF
+
 echo "First run of puppet agent, which will create the cert!" &&
 echo "Sign the cert on the puppet master and ship it" &&
 puppet agent --test
