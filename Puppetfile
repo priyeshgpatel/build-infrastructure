@@ -11,3 +11,7 @@ mod "thd/base",
 
 mod "thd/ssl_cert",
   :path => "myModules/ssl_cert"
+
+mod "thd/puppet_master",
+  :path => "myModules/puppet_master"
+
