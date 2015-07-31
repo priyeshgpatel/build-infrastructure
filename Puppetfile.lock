@@ -3,6 +3,7 @@ FORGE
   specs:
     puppetlabs-apt (2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
+    puppetlabs-firewall (1.7.0)
     puppetlabs-stdlib (4.7.0)
 
 PATH
@@ -18,6 +19,7 @@ PATH
 
 DEPENDENCIES
   puppetlabs-apt (= 2.1.1)
+  puppetlabs-firewall (= 1.7.0)
   thd-base (>= 0)
   thd-ssl_cert (>= 0)
 
