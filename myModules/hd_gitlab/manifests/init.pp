@@ -45,7 +45,7 @@ class hd_gitlab(
     mode    => 0600,
     content => template('hd_gitlab/gitlab.rb.erb'),
     notify  => Exec['gitlab-reconfigure'],
-    require => File_line['gitlab_repo_filesystem'],
+    require => Mount['gitlab_repo_mount'],
   }
 
   exec{ 'gitlab-reconfigure':
