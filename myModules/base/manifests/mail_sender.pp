@@ -57,5 +57,4 @@ class base::mail_sender(
     ],
     notify  => Service['postfix'],
   }
-
 }
