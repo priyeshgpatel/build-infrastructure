@@ -1,3 +1,3 @@
 class hd_java {
-  #TODO set up all the java stuff
+  # There's not really anything in here that's specific
 }
