@@ -21,10 +21,14 @@ class base::mail_sender(
     ensure => present,
   }
 
+  package{ 'libsasl2-modules':
+    ensure => present,
+  }
+
   service{ 'postfix':
     ensure  => running,
     enable  => true,
-    require => Package['postfix'],
+    require => Package['postfix', 'libsasl2-modules'],
   }
 
   file{ '/etc/postfix/sasl_password':
@@ -42,6 +46,7 @@ class base::mail_sender(
   exec{ 'PostmapSASL':
     command     => '/usr/sbin/postmap /etc/postfix/sasl_password',
     refreshonly => true,
+    notify      => Service['postfix'],
   }
 
   file{ '/etc/postfix/main.cf':
