@@ -13,6 +13,12 @@ PATH
       puppetlabs-stdlib (>= 0)
 
 PATH
+  remote: myModules/hd_gitlab
+  specs:
+    thd-hd_gitlab (0.0.1)
+      thd-ssl_cert (>= 0)
+
+PATH
   remote: myModules/hd_java
   specs:
     thd-hd_java (0.0.1)
@@ -31,6 +37,7 @@ DEPENDENCIES
   puppetlabs-apt (= 2.1.1)
   puppetlabs-firewall (= 1.7.0)
   thd-base (>= 0)
+  thd-hd_gitlab (>= 0)
   thd-hd_java (>= 0)
   thd-puppet_master (>= 0)
   thd-ssl_cert (>= 0)

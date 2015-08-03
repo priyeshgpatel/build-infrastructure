@@ -18,3 +18,5 @@ mod "thd/puppet_master",
 mod "thd/hd_java",
   :path => "myModules/hd_java"
 
+mod "thd/hd_gitlab",
+  :path => "myModules/hd_gitlab"
