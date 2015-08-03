@@ -26,6 +26,6 @@ class hd_gitlab::package {
 
   package{ 'gitlab-ce':
     ensure  => installed,
-    require => Apt::Source['gitlab_repo'],
+    require => Apt::Source['gitlab-repo'],
   }
 }
