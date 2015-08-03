@@ -19,3 +19,8 @@ node 'jenkins-master.c.hd-build.internal' {
   # for now, include the base::java module to get some java ppa options in there
   include base::java
 }
+
+node 'gitlab.c.hd-build.internal' {
+  include base
+  include hd_gitlab
+}
