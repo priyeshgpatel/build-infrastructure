@@ -2,13 +2,13 @@ class hd_gitlab::package {
 # set up all the apt stuff for gitlab, and get the package installed
   include apt
 
-  apt::key{ 'gitlab_key':
+  apt::key{ 'gitlab-key':
     ensure => present,
     source => "https://packages.gitlab.com/gpg.key",
   }
 
 # NOTE: apt-transport-https is specified in the base manifest
-  apt::source{ 'gitlab_repo':
+  apt::source{ 'gitlab-repo':
     comment  => "gitlab packages repo",
     location => "https://packages.gitlab.com/gitlab/gitlab-ce/debian",
     release  => "wheezy",
@@ -18,7 +18,7 @@ class hd_gitlab::package {
       'deb' => true
     },
     require  => [
-      Apt::Key['gitlab_key'],
+      Apt::Key['gitlab-key'],
       Package['apt-transport-https']
     ],
   }
