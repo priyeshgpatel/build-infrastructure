@@ -17,4 +17,9 @@ class base::java {
       'deb' => true,
     },
   }
+
+  #TODO: automatically accept the oracle license, we agree to it
+  # TODO: probably create an oracle-jdk8 class
+  # should probably make a hd_java module to manage this stuff
+  #echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 }

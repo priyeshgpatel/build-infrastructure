@@ -15,7 +15,7 @@ class base::mail_sender(
 
 # this is just a class to handle a sending-only postfix server
 # it cannot receive, and it will only handle sending outgoing mail
-# It's also special for the google cloud, requiring sendgrid credentials
+# using sendgrid as the relay host
 
   package{ 'postfix':
     ensure => present,

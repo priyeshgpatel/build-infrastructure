@@ -6,12 +6,11 @@ class base(
   class { ['base::fw_pre', 'base::fw_post']: }
   class { 'firewall': }
 
-# only a gig of swap, because the default google cloud image size is pretty small (10gb)
+  # 1 GB Swap
   base::swap{ 'swapfile':
     swapfile => '/swapfile',
     swapsize => 1024
   }
-# not configuring a root password since the default google cloud images sudo everything
 
   file { '/etc/profile.d/ls.sh':
     ensure => present,

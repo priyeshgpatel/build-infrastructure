@@ -2,6 +2,7 @@ class base::nginx {
 
   include ssl_cert
 
+  # TODO: need to ensure this is from backports, so it's new enough?
   package { 'nginx':
     ensure => present,
   }
