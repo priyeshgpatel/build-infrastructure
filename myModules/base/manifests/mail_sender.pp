@@ -40,7 +40,7 @@ class base::mail_sender(
   }
 
   exec{ 'PostmapSASL':
-    command     => '/usr/bin/postmap /etc/postfix/sasl_password',
+    command     => '/usr/sbin/postmap /etc/postfix/sasl_password',
     refreshonly => true,
   }
 
