@@ -1,0 +1,28 @@
+#MANAGED BY PUPPET
+
+upstream app_jenkins {
+    server 127.0.0.1:8080;
+}
+server {
+    # TODO: switch to 443, when we have SSL again :(
+    listen [::]:80;
+
+    # TODO: re-include when we have SSL configuration again
+    #include /etc/nginx/nginx-ssl.conf;
+
+    server_name <%= @jenkins_web_hostname %>;
+
+    location / {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-Proto http;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+
+      proxy_read_timeout 90;
+
+      proxy_pass http://app_jenkins$request_uri;
+      # Fix the “It appears that your reverse proxy set up is broken" error.
+      proxy_redirect http://app_jenkins $scheme://<%= @jenkins_web_hostname %>;
+   }
+}
