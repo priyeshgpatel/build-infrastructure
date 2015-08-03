@@ -3,6 +3,7 @@ class hd_gitlab::package {
   include apt
 
   apt::key{ 'gitlab-key':
+    id     => "1A4C919DB987D435939638B914219A96E15E78F4",
     ensure => present,
     source => "https://packages.gitlab.com/gpg.key",
   }
