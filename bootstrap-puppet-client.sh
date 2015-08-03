@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # bootstrap script for the puppet agents
 # Not going to use puppet 4, because 3.x is simpler, and we can move to chef
