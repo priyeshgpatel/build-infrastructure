@@ -1,0 +1,3 @@
+---
+hd_gitlab::http_url: http://130.211.172.110/
+hd_gitlab::external_hostname: 130.211.172.110
