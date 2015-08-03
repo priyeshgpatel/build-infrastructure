@@ -15,3 +15,6 @@ mod "thd/ssl_cert",
 mod "thd/puppet_master",
   :path => "myModules/puppet_master"
 
+mod "thd/hd_java",
+  :path => "myModules/hd_java"
+
