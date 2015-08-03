@@ -6,7 +6,7 @@ class base(
   class { ['base::fw_pre', 'base::fw_post']: }
   class { 'firewall': }
 
-  # 1 GB Swap
+# 1 GB Swap
   base::swap{ 'swapfile':
     swapfile => '/swapfile',
     swapsize => 1024
@@ -31,6 +31,10 @@ class base(
     owner   => root,
     group   => root,
     require => Package['tmux'],
+  }
+
+  package{ 'apt-transport-https':
+    ensure => present,
   }
 
   package{ 'wget':
