@@ -24,6 +24,11 @@ PATH
     thd-hd_java (0.0.1)
 
 PATH
+  remote: myModules/hd_jenkins
+  specs:
+    thd-hd_jenkins (0.0.1)
+
+PATH
   remote: myModules/puppet_master
   specs:
     thd-puppet_master (0.0.1)
@@ -39,6 +44,7 @@ DEPENDENCIES
   thd-base (>= 0)
   thd-hd_gitlab (>= 0)
   thd-hd_java (>= 0)
+  thd-hd_jenkins (>= 0)
   thd-puppet_master (>= 0)
   thd-ssl_cert (>= 0)
 

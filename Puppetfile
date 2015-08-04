@@ -20,3 +20,7 @@ mod "thd/hd_java",
 
 mod "thd/hd_gitlab",
   :path => "myModules/hd_gitlab"
+
+mod "thd/hd_jenkins",
+  :path => "myModules/hd_jenkins"
+
