@@ -3,7 +3,8 @@ version '0.0.1'
 
 author 'David Kowis'
 
-dependency 'puppetlabs/apt'
 dependency 'camptocamp/archive'
-dependency 'rtyler/jenkins', '1.4.0'
-dependency 'puppetlabs/java', '1.4.1'
+dependency 'rtyler/jenkins' do
+  exclusion 'puppetlabs/apt'
+end
+dependency 'puppetlabs/java'
