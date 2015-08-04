@@ -44,14 +44,14 @@ class hd_gitlab(
     require => Package['gitlab-ce'],
     before  => File['/etc/gitlab/gitlab.rb'],
   } ~>
-  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlabs.com.crt':
+  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlab.com.crt':
     ensure => link,
-    target => '/etc/ssl/certs/build.gc.hdtechlabs.com.crt',
+    target => '/etc/ssl/certs/build.gc.hdtechlab.com.crt',
     notify => Exec['gitlab-reconfigure'],
   } ~>
-  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlabs.com.key':
+  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlab.com.key':
     ensure => link,
-    target => '/etc/ssl/keys/build.gc.hdtechlabs.com.key',
+    target => '/etc/ssl/keys/build.gc.hdtechlab.com.key',
     notify => Exec['gitlab-reconfigure'],
   }
 

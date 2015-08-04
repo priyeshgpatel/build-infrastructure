@@ -1,4 +1,4 @@
 ---
 # external hostnames for servers for all the useful stuff
-hd_gitlab::external_hostname: gitlab.build.gc.hdtechlabs.com
-hd_jenkins::external_hostname: jenkins.build.gc.hdtechlabs.com
+hd_gitlab::external_hostname: gitlab.build.gc.hdtechlab.com
+hd_jenkins::external_hostname: jenkins.build.gc.hdtechlab.com
