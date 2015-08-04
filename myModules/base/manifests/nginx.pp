@@ -2,9 +2,15 @@ class base::nginx {
 
   include ssl_cert
 
-  # TODO: need to ensure this is from backports, so it's new enough?
+# Set up a pin for nginx
+  apt::pin{ 'backport-nginx':
+    priority => 500,
+    packages => ['nginx'],
+  }
+
   package { 'nginx':
-    ensure => present,
+    ensure  => present,
+    require => Apt::Pin['backport-nginx'],
   }
 
   exec{ 'dhparam-gen':
