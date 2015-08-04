@@ -1,4 +1,4 @@
-class hd_java::oracle_java_8 {
+class hd_java::oracle_jdk_8 {
   include hd_java::apt_webupd8
 
   package{ 'oracle-java8':
