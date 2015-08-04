@@ -16,5 +16,4 @@ class ssl_cert(
     cert_content => $wildcard_cert,
     key_content  => $wildcard_key,
   }
-
 }
