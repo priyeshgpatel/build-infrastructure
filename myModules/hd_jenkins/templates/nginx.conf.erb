@@ -4,13 +4,12 @@ upstream app_jenkins {
     server 127.0.0.1:8080;
 }
 server {
-    # TODO: switch to 443, when we have SSL again :(
-    listen [::]:80;
+    listen [::]:443;
 
     # TODO: re-include when we have SSL configuration again
-    #include /etc/nginx/nginx-ssl.conf;
+    include /etc/nginx/nginx-ssl.conf;
 
-    server_name <%= @jenkins_web_hostname %>;
+    server_name <%= @master_hostname %>;
 
     location / {
       proxy_set_header X-Real-IP $remote_addr;
@@ -23,6 +22,6 @@ server {
 
       proxy_pass http://app_jenkins$request_uri;
       # Fix the “It appears that your reverse proxy set up is broken" error.
-      proxy_redirect http://app_jenkins $scheme://<%= @jenkins_web_hostname %>;
+      proxy_redirect http://app_jenkins $scheme://<%= @master_hostname %>;
    }
 }

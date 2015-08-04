@@ -11,22 +11,23 @@ class hd_jenkins(
   include hd_jenkins::build_tools::gradle
   include hd_jenkins::build_tools::maven
 
-  # include packages that plugins might need to do work (rpm, other system packages that your build might need)
+# include packages that plugins might need to do work (rpm, other system packages that your build might need)
   include hd_jenkins::plugin_packages
 
   $jenkins_home = '/var/lib/jenkins'
 
-#TODO: hook this to the base webupd8 java stuff somehow
+  include hd_java::oracle_jdk_8
+# this should be the right java, and it's already installed
   class{ 'java':
     distribution => 'jdk',
-    package      => 'openjdk-7-jdk',
+    package      => 'oracle-java8-installer',
     version      => 'present',
+    require      => Class['hd_java::oracle_jdk_8'],
   }
 
 
 #jenkins master needs a git config so that it can talk to the scm plugin
 # Also needed by any of the release builds for when they do a git push
-#TODO: need a machine account on github for our jenkins
   file{ "${jenkins_home}/.gitconfig":
     ensure => file,
     mode   => 0664,

@@ -3,7 +3,7 @@
 # Since the apt-repo doesn't keep around older versions it makes for a mess, using installed will keep puppet from
 # doing silly things
 class hd_jenkins::master(
-  $jenkins_web_hostname = $fqdn,
+  $external_hostname = hiera('hd_jenkins::master_hostname', undef),
   $jenkins_version = "installed",
   $scm_sync_url = undef
 ) {
@@ -65,9 +65,7 @@ class hd_jenkins::master(
     },
   }
 
-#TODO: re-enable https when we have certificates
-#include base::nginx::autohttps
-  include base::nginx
+  include base::nginx::autohttps
 
   file{ "/etc/nginx/conf.d/jenkins.conf":
     ensure  => file,
