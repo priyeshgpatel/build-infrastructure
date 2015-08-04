@@ -1,3 +1,4 @@
 ---
-hd_gitlab::http_url: http://130.211.172.110/
-hd_gitlab::external_hostname: 130.211.172.110
+# external hostnames for servers for all the useful stuff
+hd_gitlab::external_hostname: gitlab.build.gc.hdtechlabs.com
+hd_jenkins::external_hostname: jenkins.build.gc.hdtechlabs.com

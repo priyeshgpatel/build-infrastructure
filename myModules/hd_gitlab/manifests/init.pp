@@ -1,12 +1,10 @@
 class hd_gitlab(
-  $http_url = undef,
   $external_hostname = undef,
   $gitlab_repo_disk = 'google-gitlab-repo-disk'
 ) {
 # gitlab needs sending
   include base::mail_sender
 
-#TODO: eventually we're going to want HTTPS. Maybe i'll just do a self-signed cert for now...
   include ssl_cert
 
 # get our package installed!
@@ -37,7 +35,27 @@ class hd_gitlab(
     options => 'defaults,noatime',
   }
 
-  # this is the primary gitlab configuration file, it's big.
+# have to link the certs to /etc/gitlab/ssl
+  file{ '/etc/gitlab/ssl':
+    ensure  => directory,
+    owner   => root,
+    group   =>root,
+    mode    => 0700,
+    require => Package['gitlab-ce'],
+    before  => '/etc/gitlab/gitlab.rb',
+  } ~>
+  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlabs.com.crt':
+    ensure => link,
+    target => '/etc/ssl/certs/build.gc.hdtechlabs.com.crt',
+    notify => Exec['gitlab-reconfigure'],
+  } ~>
+  file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlabs.com.key':
+    ensure => link,
+    target => '/etc/ssl/keys/build.gc.hdtechlabs.com.key',
+    notify => Exec['gitlab-reconfigure'],
+  }
+
+# this is the primary gitlab configuration file, it's big.
   file{ '/etc/gitlab/gitlab.rb':
     ensure  => file,
     owner   => root,
