@@ -42,7 +42,7 @@ class hd_gitlab(
     group   =>root,
     mode    => 0700,
     require => Package['gitlab-ce'],
-    before  => '/etc/gitlab/gitlab.rb',
+    before  => File['/etc/gitlab/gitlab.rb'],
   } ~>
   file{ '/etc/gitlab/ssl/gitlab.build.gc.hdtechlabs.com.crt':
     ensure => link,
