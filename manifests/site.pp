@@ -16,8 +16,7 @@ node 'puppetmaster.c.hd-build.internal' {
 
 node 'jenkins-master.c.hd-build.internal' {
   include base
-  # for now, include the base::java module to get some java ppa options in there
-  include hd_java::oracle_jdk_8
+  include hd_jenkins::master
 }
 
 node 'gitlab.c.hd-build.internal' {
