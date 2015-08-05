@@ -76,10 +76,12 @@ class hd_jenkins::master(
     notify  => Service['nginx'],
   }
 
+#NOTE: the plugins don't handle dependencies, so you have to manually resolve dependencies to ensure
+# plugins are installed
+
 # define our jenkins SCM config sync plugin
 # I think this is the only one we need, as it manages all the other configs
 # the base class provides the ssh key for github.com, so it should be good to go
-#TODO: need credentials for this stuff, and where to hook it up
   jenkins::plugin{ 'scm-sync-configuration':
     version         => '0.0.8',
     manage_config   => true,
@@ -104,6 +106,12 @@ class hd_jenkins::master(
   }
 
 #TODO: giant pile of plugins
+  jenkins::plugin{ 'scm-api':
+    version => '0.2',
+  }
+  jenkins::plugin{ 'git-client':
+    version => '1.18.0'
+  }
   jenkins::plugin{ 'git':
     version => '2.3.5'
   }
