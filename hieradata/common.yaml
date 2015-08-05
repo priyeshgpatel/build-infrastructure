@@ -12,5 +12,5 @@ host_keys::github_host_key:
 
 host_keys::gitlab_host_key:
   name: gitlab.build.gc.hdtechlab.com
-  key: AAAAC3NzaC1lZDI1NTE5AAAAIJ8pOsQ7I4+i2QEp4zxenLeLu7xgHi/LwhZ+8howu6+C
-  type: ssh-ed25519
+  key: AAAAB3NzaC1yc2EAAAADAQABAAABAQCtjIdgohCWlZgHLBaqVxvS6Eedbt9XlCPf9P2EAMtM0j/TbziJa3lDxCLF1lF04sJr79w29ZecP1q1V6FAcLLIQhh7lMyeYxazC6hvTLJFV6EuxfZ8Dh26xkBInzNNKVxXc22xwao9MRsHYzPQ8zjJdTtHWnXG7Lx4eCcwXfKIe8HCeN3B6wkTw4eDgUYAMc7MjdAnaqjl5PZH18AwynjGggYidIsdR0uqFhlOK28IoZOOlX6eUAJybrKa1H+6niaAmYf7QZqB6TX+hirfAZn7roF/En0+UJHQq46IV8zRvoUIupGk1DDVAiAzjOxH0xA37xMwTHOZeA9J6OVutRXf
+  type: ssh-rsa
