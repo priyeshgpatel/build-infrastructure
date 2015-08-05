@@ -16,15 +16,8 @@ class hd_jenkins(
 
   $jenkins_home = '/var/lib/jenkins'
 
+  # ensure we have a java installed
   include hd_java::oracle_jdk_8
-# this should be the right java, and it's already installed
-  class{ 'java':
-    distribution => 'jdk',
-    package      => 'oracle-java8-installer',
-    version      => 'present',
-    require      => Class['hd_java::oracle_jdk_8'],
-  }
-
 
 #jenkins master needs a git config so that it can talk to the scm plugin
 # Also needed by any of the release builds for when they do a git push
