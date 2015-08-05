@@ -1,5 +1,5 @@
 class hd_gitlab(
-  $external_hostname = undef,
+  $external_hostname = hiera('external_fqdn', $fqdn),
   $gitlab_repo_disk = 'google-gitlab-repo-disk'
 ) {
 # gitlab needs sending

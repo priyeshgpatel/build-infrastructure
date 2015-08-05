@@ -1,5 +1,1 @@
 ---
-# external hostnames for servers for all the useful stuff
-hd_gitlab::external_hostname: gitlab.build.gc.hdtechlab.com
-
-hd_jenkins::master_hostname: jenkins.build.gc.hdtechlab.com

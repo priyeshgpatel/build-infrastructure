@@ -2,8 +2,9 @@
 # Using installed will not automatically update jenkins for us, just make sure it's actually there.
 # Since the apt-repo doesn't keep around older versions it makes for a mess, using installed will keep puppet from
 # doing silly things
+# use the external_fqdn from hiera, if it's set, else regular fqdn
 class hd_jenkins::master(
-  $external_hostname = hiera('hd_jenkins::master_hostname', undef),
+  $external_hostname = hiera('external_fqdn', $fqdn),
   $jenkins_version = "installed",
   $scm_sync_url = undef
 ) {

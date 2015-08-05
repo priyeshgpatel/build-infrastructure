@@ -1,4 +1,4 @@
 server {
-    server_name <%= @fqdn %>;
+    server_name <%= @template_fqdn %>;
     rewrite ^ https://$server_name$request_uri? permanent;
 }
