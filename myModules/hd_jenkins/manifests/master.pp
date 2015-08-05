@@ -106,6 +106,10 @@ class hd_jenkins::master(
   }
 
 #TODO: giant pile of plugins
+  jenkins::plugin{ 'saml':
+    version => '0.3',
+  }
+
   jenkins::plugin{ 'scm-api':
     version => '0.2',
   }
