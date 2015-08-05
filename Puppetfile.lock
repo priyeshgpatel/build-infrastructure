@@ -54,6 +54,11 @@ PATH
       puppetlabs-java (>= 0)
 
 PATH
+  remote: myModules/mumble_server
+  specs:
+    thd-mumble_server (0.0.1)
+
+PATH
   remote: myModules/puppet_master
   specs:
     thd-puppet_master (0.0.1)
@@ -71,6 +76,7 @@ DEPENDENCIES
   thd-hd_gitlab (>= 0)
   thd-hd_java (>= 0)
   thd-hd_jenkins (>= 0)
+  thd-mumble_server (>= 0)
   thd-puppet_master (>= 0)
   thd-ssl_cert (>= 0)
 

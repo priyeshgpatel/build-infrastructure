@@ -29,3 +29,6 @@ mod "thd/hd_jenkins",
 mod 'rtyler/jenkins',
   :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
   :ref => 'master'
+
+mod "thd/mumble_server",
+  :path => "myModules/mumble_server"
