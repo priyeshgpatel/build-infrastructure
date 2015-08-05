@@ -5,4 +5,5 @@ author 'David Kowis'
 
 dependency 'camptocamp/archive'
 dependency 'puppetlabs/java'
+dependency 'maestrodev/maven'
 # the dependency for rtyler/jenkins is in the main Puppetfile

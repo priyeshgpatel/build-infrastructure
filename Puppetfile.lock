@@ -3,6 +3,9 @@ FORGE
   specs:
     camptocamp-archive (0.8.0)
     darin-zypprepo (1.0.2)
+    maestrodev-maven (1.4.0)
+      maestrodev-wget (>= 1.0.0)
+    maestrodev-wget (1.7.0)
     nanliu-staging (1.0.3)
     puppetlabs-apt (2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
@@ -47,6 +50,7 @@ PATH
   specs:
     thd-hd_jenkins (0.0.1)
       camptocamp-archive (>= 0)
+      maestrodev-maven (>= 0)
       puppetlabs-java (>= 0)
 
 PATH
