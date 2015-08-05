@@ -12,7 +12,7 @@ class hd_jenkins(
   include hd_jenkins::build_tools::maven
 
 # include packages that plugins might need to do work (rpm, other system packages that your build might need)
-  include hd_jenkins::plugin_packages
+  include hd_jenkins::build_tools::build_packages
 
   $jenkins_home = '/var/lib/jenkins'
 

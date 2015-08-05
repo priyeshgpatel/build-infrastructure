@@ -18,6 +18,7 @@ class hd_jenkins::build_tools::build_packages {
 #  }
 #
   # all of the build processes need git (git is also needed in other places...)
+  #TODO: this should be somewhere else...
   package { 'git':
     ensure => present,
   }
