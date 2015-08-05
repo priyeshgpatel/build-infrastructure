@@ -1,1 +1,3 @@
 ---
+hd_jenkins::jenkins_home: /var/lib/jenkins
+hd_jenkins::maven_version: 3.3.3

@@ -1,13 +1,12 @@
 class hd_jenkins::build_tools::maven(
-  $jenkins_home = undef,
+  $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
+  $maven_version = hiera('hd_jenkins::maven_version', '3.3.3')
 ) {
-  # TODO: finish this guy
 # ensure maven is installed
 # see https://forge.puppetlabs.com/maestrodev/maven for many examples, including how to set up ~/.m2/settings.xml
   class{ "maven::maven":
     version => "${maven_version}",
   }
-
 
 # specify some maven options for jenkins
 # had to specify the user home, because it doesn't facter it :|

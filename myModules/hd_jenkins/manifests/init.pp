@@ -1,6 +1,7 @@
 # Installs base layer, but no jenkins itself. Perfect for a slave configuration.
 # also used by the master, basically anything that wants to run our jenkins jobs
 class hd_jenkins(
+  $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
   $jenkins_key = undef,
   $jenkins_key_pub = undef
 ) {
@@ -13,8 +14,6 @@ class hd_jenkins(
 
 # include packages that plugins might need to do work (rpm, other system packages that your build might need)
   include hd_jenkins::build_tools::build_packages
-
-  $jenkins_home = '/var/lib/jenkins'
 
   # ensure we have a java installed
   include hd_java::oracle_jdk_8

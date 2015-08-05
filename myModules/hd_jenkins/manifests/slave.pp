@@ -3,11 +3,10 @@ class hd_jenkins::slave(
   $jenkins_username = "nope",
   $jenkins_password = "nope",
   $master_url = "http://TODO.TODO.internal",
-  $executors = 2
+  $executors = 2,
+  $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
 ) {
   include hd_jenkins
-
-  $jenkins_home = '/var/lib/jenkins'
 
   class{ 'jenkins::slave':
     masterurl         => $master_url,

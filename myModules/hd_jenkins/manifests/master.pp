@@ -6,11 +6,10 @@
 class hd_jenkins::master(
   $external_hostname = hiera('external_fqdn', $fqdn),
   $jenkins_version = "installed",
+  $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
   $scm_sync_url = undef
 ) {
   include hd_jenkins
-
-  $jenkins_home = '/var/lib/jenkins'
 
 
 # This is kind of nasty hax.
