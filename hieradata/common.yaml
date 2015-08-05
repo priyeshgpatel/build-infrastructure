@@ -1,3 +1,5 @@
 ---
 hd_jenkins::jenkins_home: /var/lib/jenkins
 hd_jenkins::maven_version: 3.3.3
+
+hd_jenkins::master::scm_sync_url: scm:git:git@gitlab.build.gc.hdtechlab.com:hd-build/hdbuild-jenkins-config.git
