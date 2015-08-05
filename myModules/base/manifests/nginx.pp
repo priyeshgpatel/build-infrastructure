@@ -5,7 +5,7 @@ class base::nginx {
 # Set up a pin for nginx
   apt::pin{ 'backport-nginx':
     priority => 500,
-    packages => ['nginx'],
+    packages => ['nginx', 'nginx-full', 'nginx-common'],
   }
 
   package { 'nginx':
