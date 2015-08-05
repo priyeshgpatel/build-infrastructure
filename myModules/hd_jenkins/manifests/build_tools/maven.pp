@@ -26,6 +26,5 @@ class hd_jenkins::build_tools::maven(
   file{ "/opt/maven":
     ensure  => link,
     target  => "/opt/apache-maven-${maven_version}",
-    require => Class['java'],
   }
 }

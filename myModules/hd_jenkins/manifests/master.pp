@@ -54,7 +54,6 @@ class hd_jenkins::master(
     install_java       => false,
     repo               => true,
     require            => [
-      Class['java'],
       File["${jenkins_home}/.gitconfig"]
     ],
     config_hash        => {
