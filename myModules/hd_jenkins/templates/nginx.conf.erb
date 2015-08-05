@@ -5,8 +5,8 @@ upstream app_jenkins {
 }
 server {
     listen [::]:443;
+    listen 443;
 
-    # TODO: re-include when we have SSL configuration again
     include /etc/nginx/nginx-ssl.conf;
 
     server_name <%= @external_hostname %>;
