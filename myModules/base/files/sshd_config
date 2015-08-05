@@ -11,7 +11,12 @@ Protocol 2
 # HostKeys for protocol version 2
 HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_dsa_key
-HostKey /etc/ssh/ssh_host_ecdsa_key
+# openssh 6.5+ has support for better ec host keys, so lets use them
+# http://chneukirchen.org/blog/archive/2014/02.html
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# don't use the regular boring elliptic curve crypto, because the ED25519 is better
+#HostKey /etc/ssh/ssh_host_ecdsa_key
 #Privilege Separation is turned on for security
 UsePrivilegeSeparation yes
 

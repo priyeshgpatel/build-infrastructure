@@ -6,6 +6,10 @@ class base(
   class { ['base::fw_pre', 'base::fw_post']: }
   class { 'firewall': }
 
+# include ssh setup stuff in it's own class
+  include base::sshd
+
+
 # 1 GB Swap
   base::swap{ 'swapfile':
     swapfile => '/swapfile',
@@ -42,6 +46,10 @@ class base(
   }
 
   package{ 'unzip':
+    ensure => present,
+  }
+
+  package{ 'bzip2':
     ensure => present,
   }
 
@@ -133,36 +141,6 @@ class base(
       Package["rsyslog"],
       File["/etc/rsyslog.conf"]
     ],
-  }
-
-# set up some ssh stuff now
-  package{ 'openssh-server':
-    ensure => present,
-  }
-
-  service{ 'ssh':
-    ensure  => running,
-    enable  => true,
-    require => Package['openssh-server'],
-  }
-  file{ '/etc/motd':
-    ensure  => file,
-    mode    => 0644,
-    owner   => root,
-    group   => root,
-    content => template("base/motd.erb"),
-    require => Package["openssh-server"],
-
-  }
-
-  file{ '/etc/ssh/sshd_config':
-    ensure  => file,
-    mode    => 0600,
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/base/sshd_config",
-    require => Package['openssh-server'],
-    notify  => Service['ssh'],
   }
 
 # adding tmpreaper to keep the /tmp dir cleaned up
