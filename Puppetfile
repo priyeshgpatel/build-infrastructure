@@ -21,6 +21,11 @@ mod "thd/hd_java",
 mod "thd/hd_gitlab",
   :path => "myModules/hd_gitlab"
 
+#I'm like 5 mads right now, this module depends on versions of stuff I'm using. Not happy
 mod "thd/hd_jenkins",
   :path => "myModules/hd_jenkins"
 
+# using master of the module right now, because it's got updated apt support in it
+mod 'rtyler/jenkins',
+  :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+  :ref => 'master'

@@ -1,16 +1,35 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
+    camptocamp-archive (0.8.0)
+    darin-zypprepo (1.0.2)
+    nanliu-staging (1.0.3)
     puppetlabs-apt (2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
     puppetlabs-firewall (1.7.0)
+    puppetlabs-java (1.4.1)
+      puppetlabs-stdlib (< 5.0.0, >= 2.4.0)
     puppetlabs-stdlib (4.7.0)
+
+GIT
+  remote: https://github.com/jenkinsci/puppet-jenkins.git
+  ref: master
+  sha: df3c6dfd7c49143966541ac2be79f5bb608b8247
+  specs:
+    rtyler-jenkins (1.4.0)
+      camptocamp-archive (>= 0.8.0)
+      darin-zypprepo (< 2.0.0, >= 1.0.1)
+      nanliu-staging (< 2.0.0, >= 1.0.0)
+      puppetlabs-apt (< 3.0.0, >= 0.0.3)
+      puppetlabs-java (< 2.0.0, >= 1.0.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.6.0)
 
 PATH
   remote: myModules/base
   specs:
     thd-base (0.0.1)
       puppetlabs-stdlib (>= 0)
+      thd-ssl_cert (>= 0)
 
 PATH
   remote: myModules/hd_gitlab
@@ -27,6 +46,8 @@ PATH
   remote: myModules/hd_jenkins
   specs:
     thd-hd_jenkins (0.0.1)
+      camptocamp-archive (>= 0)
+      puppetlabs-java (>= 0)
 
 PATH
   remote: myModules/puppet_master
@@ -41,6 +62,7 @@ PATH
 DEPENDENCIES
   puppetlabs-apt (= 2.1.1)
   puppetlabs-firewall (= 1.7.0)
+  rtyler-jenkins (>= 0)
   thd-base (>= 0)
   thd-hd_gitlab (>= 0)
   thd-hd_java (>= 0)
