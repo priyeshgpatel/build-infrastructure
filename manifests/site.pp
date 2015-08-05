@@ -17,6 +17,9 @@ node 'puppetmaster.c.hd-build.internal' {
 node 'jenkins-master.c.hd-build.internal' {
   include base
   include hd_jenkins::master
+
+# jenkins needs to send emails too
+  include base::mail_sender
 }
 
 node 'gitlab.c.hd-build.internal' {
