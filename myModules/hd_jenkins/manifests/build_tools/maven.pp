@@ -16,8 +16,7 @@ class hd_jenkins::build_tools::maven(
     home       => "${jenkins_home}",
     maven_opts => '-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled',
     require    => [
-      User["jenkins"],
-      Class['java']
+      User["jenkins"]
     ],
   }
 
