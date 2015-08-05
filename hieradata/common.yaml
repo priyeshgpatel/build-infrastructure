@@ -3,3 +3,14 @@ hd_jenkins::jenkins_home: /var/lib/jenkins
 hd_jenkins::maven_version: 3.3.3
 
 hd_jenkins::master::scm_sync_url: scm:git:git@gitlab.build.gc.hdtechlab.com:hd-build/hdbuild-jenkins-config.git
+
+# host keys for things!
+host_keys::github_host_key:
+  name: github.com
+  key: AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+  type: ssh-rsa
+
+host_keys::gitlab_host_key:
+  name: gitlab.build.gc.hdtechlab.com
+  key: AAAAC3NzaC1lZDI1NTE5AAAAIJ8pOsQ7I4+i2QEp4zxenLeLu7xgHi/LwhZ+8howu6+C
+  type: ssh-ed25519

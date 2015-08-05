@@ -15,7 +15,7 @@ class hd_jenkins(
 # include packages that plugins might need to do work (rpm, other system packages that your build might need)
   include hd_jenkins::build_tools::build_packages
 
-  # ensure we have a java installed
+# ensure we have a java installed
   include hd_java::oracle_jdk_8
 
 #jenkins master needs a git config so that it can talk to the scm plugin
@@ -76,4 +76,34 @@ class hd_jenkins(
     content => template("hd_jenkins/m2settings.xml.erb"),
     require => File["${jenkins_home}/.m2"]
   }
+
+# specify knowledge of host keys, so that ssh's from a jenkins host to another, work fine!
+  $github_key_info = hiera_hash("host_keys::github_host_key", { "key" => "DEFAULT", "type" => "ssh-rsa" })
+  $gitlab_key_info = hiera_hash("host_keys::gitlab_host_key", { "key" => "DEFAULT", "type" => "ssh-rsa" })
+
+  sshkey{ 'github.com':
+    ensure => present,
+    name   => $github_key_info["name"],
+    key    => $github_key_info["key"],
+    type   => $github_key_info["type"],
+  }
+
+  sshkey{ 'gitlab.build.gc.hdtechlab.com':
+    ensure => present,
+    name   => $gitlab_key_info['name'],
+    key    => $gitlab_key_info['key'],
+    type   => $gitlab_key_info['type'],
+  }
+
+#https://tickets.puppetlabs.com/browse/PUP-1177
+# turns out puppet creates this file rather stupidly.
+  file{ "/etc/ssh/ssh_known_hosts":
+    ensure  => file,
+    mode    => 0644,
+    owner   => root,
+    group   => root,
+    require => Sshkey["github.com"],
+  }
+
+
 }

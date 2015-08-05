@@ -157,28 +157,6 @@ class base(
     require => Package['tmpreaper'],
   }
 
-# ssh host key knowledge
-# most of the hosts will need access to one or both of these, and knowledge of them won't hurt
-  $github_key_info = hiera_hash("base::github_host_key", { "key" => "DEFAULT", "type" => "ssh-rsa" })
-
-  sshkey{ 'github.com':
-    ensure => present,
-    name   => $github_key_info["name"],
-    key    => $github_key_info["key"],
-    type   => $github_key_info["type"],
-  }
-#TODO: will need a gitlab host key for our existing gitlab, chicken egg problem?
-
-#https://tickets.puppetlabs.com/browse/PUP-1177
-# turns out puppet creates this file rather stupidly.
-  file{ "/etc/ssh/ssh_known_hosts":
-    ensure  => file,
-    mode    => 0644,
-    owner   => root,
-    group   => root,
-    require => Sshkey["github.com"],
-  }
-
 # schedule a cron update every 4 hours to get the latest package information
   cron{ 'cron-apt-get-update':
     ensure  => present,
