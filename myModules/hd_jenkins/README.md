@@ -1,3 +1,8 @@
 # Jenkins
+Using the upstream jenkins puppet module, with caveats mentioned in the puppet manifest files.
+This provides the manifests for a jenkins box and jenkins slaves.
 
-There's some TODOs in the project, it's not completely finished. Some 3rd party integrations need to be ironed out.
+## Remaining work
+* Monitoring
+* Slave swarming
+* slave customization (tags, etc)
