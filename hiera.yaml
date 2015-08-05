@@ -4,8 +4,8 @@
   - yaml
 
 :hierarchy:
-  - hosts/"%{::clientcert}"
-  - os/"%{::osfamily}"
+  - "hosts/%{::fqdn}"
+  - "%{::osfamily}"
   - common
 
 :yaml:
