@@ -4,7 +4,5 @@ version '0.0.1'
 author 'David Kowis'
 
 dependency 'camptocamp/archive'
-dependency 'rtyler/jenkins' do
-  exclusion 'puppetlabs/apt'
-end
 dependency 'puppetlabs/java'
+# the dependency for rtyler/jenkins is in the main Puppetfile
