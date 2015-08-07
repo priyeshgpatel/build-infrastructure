@@ -41,3 +41,9 @@ node 'nagios.c.hd-build.internal' {
   include hd_nagios::server
   include hd_nagios::client
 }
+
+node 'sonar.c.hd-build.internal' {
+  include base
+  include hd_nagios::client
+  include hd_sonar
+}

@@ -35,3 +35,6 @@ mod "thd/mumble_server",
 
 mod "thd/hd_nagios",
   :path => "myModules/hd_nagios"
+
+mod "thd/hd_sonar",
+  :path => "myModules/hd_sonar"

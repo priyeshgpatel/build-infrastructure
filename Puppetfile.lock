@@ -13,6 +13,9 @@ FORGE
     puppetlabs-firewall (1.7.0)
     puppetlabs-java (1.4.1)
       puppetlabs-stdlib (< 5.0.0, >= 2.4.0)
+    puppetlabs-mysql (3.5.0)
+      nanliu-staging (~> 1.0)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
     puppetlabs-stdlib (4.7.0)
 
 GIT
@@ -61,6 +64,13 @@ PATH
       leinaddm-htpasswd (>= 0)
 
 PATH
+  remote: myModules/hd_sonar
+  specs:
+    thd-hd_sonar (0.0.1)
+      puppetlabs-mysql (>= 0)
+      puppetlabs-stdlib (>= 0)
+
+PATH
   remote: myModules/mumble_server
   specs:
     thd-mumble_server (0.0.1)
@@ -84,6 +94,7 @@ DEPENDENCIES
   thd-hd_java (>= 0)
   thd-hd_jenkins (>= 0)
   thd-hd_nagios (>= 0)
+  thd-hd_sonar (>= 0)
   thd-mumble_server (>= 0)
   thd-puppet_master (>= 0)
   thd-ssl_cert (>= 0)

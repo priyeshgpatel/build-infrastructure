@@ -1,0 +1,30 @@
+#MANAGED BY PUPPET
+
+upstream app_sonar {
+    server 127.0.0.1:9000;
+}
+server {
+    listen [::]:443;
+    listen 443;
+
+    # this imports the necessary SSL stuff
+    include /etc/nginx/nginx-ssl.conf;
+
+    server_name <%= @external_fqdn %>>;
+
+    location / {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-Proto http;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+
+      proxy_read_timeout 90;
+
+      proxy_pass http://app_sonar$request_uri;
+      # Fix the “It appears that your reverse proxy set up is broken" error. This is for jenkins, but probably won't hurt sonar
+      proxy_redirect http://app_sonar $scheme://<%= @external_fqdn %>;
+   }
+}
+
+# Don't need to redirect from http to https, that's handled in base:nginx now
