@@ -12,6 +12,7 @@ Firewall {
 node 'puppetmaster.c.hd-build.internal' {
   include base
   include puppet_master
+  include hd_nagios::client
 }
 
 node 'jenkins-master.c.hd-build.internal' {
@@ -20,19 +21,23 @@ node 'jenkins-master.c.hd-build.internal' {
 
 # jenkins needs to send emails too
   include base::mail_sender
+  include hd_nagios::client
 }
 
 node 'gitlab.c.hd-build.internal' {
   include base
   include hd_gitlab
+  include hd_nagios::client
 }
 
 node 'mumble.c.hd-build.internal' {
   include base
   include mumble_server
+  include hd_nagios::client
 }
 
 node 'nagios.c.hd-build.internal' {
   include base
   include hd_nagios::server
+  include hd_nagios::client
 }
