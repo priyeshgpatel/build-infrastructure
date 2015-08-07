@@ -37,6 +37,7 @@ class hd_sonar(
   }
 
   sonarqube::plugin{ 'sonar-scm-activity':
+    ensure     => absent,
     groupid    => 'org.codehaus.sonar-plugins.scm-activity',
     artifactid => 'sonar-scm-activity-plugin',
     version    => '1.8',
@@ -44,6 +45,7 @@ class hd_sonar(
   }
 
   sonarqube::plugin{ 'sonar-scm-stats-plugin':
+    ensure     => absent,
     groupid    => 'org.codehaus.sonar-plugins',
     artifactid => 'sonar-scm-stats-plugin',
     version    => '0.3.1',
@@ -51,6 +53,7 @@ class hd_sonar(
   }
 
   sonarqube::plugin{ 'sonar-tab-metrics-plugin':
+    ensure     => absent,
     groupid    => 'org.codehaus.sonar-plugins',
     artifactid => 'sonar-tab-metrics-plugin',
     version    => '1.4.1',
@@ -58,9 +61,9 @@ class hd_sonar(
   }
 
   sonarqube::plugin{ 'sonar-findbugs-plugin':
-    groupid    => 'org.codehaus.sonar.plugins',
+    groupid    => 'org.codehaus.sonar.plugins.java',
     artifactid => 'sonar-findbugs-plugin',
-    version    => '3.3.2',
+    version    => '3.2',
     notify     => Service['sonar'],
   }
 
