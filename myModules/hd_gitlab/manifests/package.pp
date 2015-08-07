@@ -1,4 +1,6 @@
-class hd_gitlab::package {
+class hd_gitlab::package(
+  $gitlab_version = "installed"
+) {
 # set up all the apt stuff for gitlab, and get the package installed
   include apt
 
@@ -25,7 +27,7 @@ class hd_gitlab::package {
   }
 
   package{ 'gitlab-ce':
-    ensure  => installed,
+    ensure  => $gitlab_version,
     require => Apt::Source['gitlab-repo'],
   }
 }
