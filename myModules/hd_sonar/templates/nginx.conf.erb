@@ -10,7 +10,7 @@ server {
     # this imports the necessary SSL stuff
     include /etc/nginx/nginx-ssl.conf;
 
-    server_name <%= @external_fqdn %>>;
+    server_name <%= @external_fqdn %>;
 
     location / {
       proxy_set_header X-Real-IP $remote_addr;
