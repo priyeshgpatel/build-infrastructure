@@ -2,7 +2,8 @@
 
 
 server {
-    listen       [::]:443;
+    listen  [::]:443;
+    listen  443;
     server_name  <%= @external_fqdn %>>;
 
     # need to import our baseline SSL stuff for nginx
