@@ -6,6 +6,9 @@ class hd_sonar(
 
   include hd_java::oracle_jdk_8
 
+#TODO: this should be a custom fact
+  $external_fqdn = hiera('external_fqdn', $fqdn)
+
   if($sonar_jdbc == undef) {
     fail("Must have sonar's JDBC configured")
   }
