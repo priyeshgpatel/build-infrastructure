@@ -31,3 +31,8 @@ node 'mumble.c.hd-build.internal' {
   include base
   include mumble_server
 }
+
+node 'nagios.c.hd-build.internal' {
+  include base
+  include hd_nagios::server
+}

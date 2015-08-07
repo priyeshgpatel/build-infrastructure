@@ -32,3 +32,6 @@ mod 'rtyler/jenkins',
 
 mod "thd/mumble_server",
   :path => "myModules/mumble_server"
+
+mod "thd/hd_nagios",
+  :path => "myModules/hd_nagios"
