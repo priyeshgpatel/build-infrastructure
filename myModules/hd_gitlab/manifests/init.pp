@@ -68,6 +68,7 @@ class hd_gitlab(
 
   exec{ 'gitlab-reconfigure':
     command     => '/usr/bin/gitlab-ctl reconfigure',
+    subscribe   => Package['gitlab-ce'],
     refreshonly => true,
   }
 
