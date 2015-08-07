@@ -10,6 +10,15 @@ class hd_sonar(
     fail("Must have sonar's JDBC configured")
   }
 
+# ensure maven is installed
+# the plugin bits needs maven installed to get the plugins
+# Note this will conflict with the maven:maven class in jenkins
+# see https://forge.puppetlabs.com/maestrodev/maven for many examples, including how to set up ~/.m2/settings.xml
+  class{ "maven::maven":
+    version => "3.3.3",
+  }
+
+
   class{ 'sonarqube':
     version     => '5.1.2',
     user        => 'sonar',
