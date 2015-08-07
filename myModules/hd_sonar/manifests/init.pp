@@ -61,7 +61,7 @@ class hd_sonar(
   }
 
   sonarqube::plugin{ 'sonar-findbugs-plugin':
-    groupid    => 'org.codehaus.sonar.plugins.java',
+    groupid    => 'org.codehaus.sonar-plugins.java',
     artifactid => 'sonar-findbugs-plugin',
     version    => '3.2',
     notify     => Service['sonar'],
