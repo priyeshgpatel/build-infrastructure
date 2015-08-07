@@ -6,6 +6,10 @@ FORGE
     leinaddm-htpasswd (0.0.3)
     maestrodev-maven (1.4.0)
       maestrodev-wget (>= 1.0.0)
+    maestrodev-sonarqube (2.6.1)
+      maestrodev-maven (>= 0.0.2)
+      maestrodev-wget (>= 0.0.1)
+      puppetlabs-stdlib (>= 2.3.0)
     maestrodev-wget (1.7.0)
     nanliu-staging (1.0.3)
     puppetlabs-apt (2.1.1)
@@ -67,6 +71,7 @@ PATH
   remote: myModules/hd_sonar
   specs:
     thd-hd_sonar (0.0.1)
+      maestrodev-sonarqube (>= 0)
       puppetlabs-mysql (>= 0)
       puppetlabs-stdlib (>= 0)
 
