@@ -2,6 +2,8 @@ class base::nginx {
 
   include ssl_cert
 
+  include apt
+
 # Set up a pin for nginx
   apt::pin{ 'backport-nginx':
     codename  => 'wheezy-backports',
