@@ -4,7 +4,9 @@ class hd_java::oracle_jdk_8 {
   package{ 'oracle-java8':
     name    => 'oracle-java8-installer',
     ensure  => present,
-    require => Apt::Source['webupd8Java'],
+    require => [Apt::Source['webupd8Java'],
+      Class['apt::update']
+    ],
   }
 
   exec{ 'java8-license-accept':
