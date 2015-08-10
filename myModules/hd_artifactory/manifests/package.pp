@@ -11,7 +11,6 @@ class hd_artifactory::package(
     ensure           => present,
   #url              => "https://bintray.com/artifact/download/jfrog/artifactory/jfrog-artifactory-oss-4.0.1.zip",
     url              => "${base_url}/jfrog-artifactory-oss-${version}.zip",
-    purge_target     => true,
     follow_redirects => true,
     target           => "/opt",
     extension        => "zip",
