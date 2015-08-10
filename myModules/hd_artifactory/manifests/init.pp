@@ -3,10 +3,10 @@ class hd_artifactory {
   include hd_artifactory::package
   include hd_artifactory::storage
 
+# can't notify on a change to the install service, becaues it happens on every puppet run :(
   service{ 'artifactory':
     ensure    => running,
     require   => Class['hd_artifactory::package', 'hd_artifactory::storage'],
-    subscribe => Exec['install_service'],
   }
 
   include base::nginx::autohttps
