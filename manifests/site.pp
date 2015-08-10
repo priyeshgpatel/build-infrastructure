@@ -47,3 +47,9 @@ node 'sonar.c.hd-build.internal' {
   include hd_nagios::client
   include hd_sonar
 }
+
+node 'artifactory.c.hd-build.internal' {
+  include base
+  include hd_nagios::client
+  include hd_artifactory
+}
