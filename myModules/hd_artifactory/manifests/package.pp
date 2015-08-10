@@ -31,7 +31,7 @@ class hd_artifactory::package(
 
   exec{ 'install_service':
     refreshonly => true,
-    command     => "/opt/artifactory/bin/installService.sh",
+    command     => "/bin/bash /opt/artifactory/bin/installService.sh",
     require     => Class['hd_java::oracle_jdk_8']
   }
 
