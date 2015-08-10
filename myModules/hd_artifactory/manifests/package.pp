@@ -1,6 +1,6 @@
 class hd_artifactory::package(
   $version = "4.0.1",
-  $base_url = "https://bintray.com/artifact/download/jfrog/artifactory/",
+  $base_url = "https://bintray.com/artifact/download/jfrog/artifactory",
   $sha1 = '8d11e3735789a2cbf38e45a4e3709c92b86a703e'
 ){
 
@@ -9,6 +9,7 @@ class hd_artifactory::package(
   archive{ "artifactory-$version":
     name             => "jfrog-artifactory-oss-${version}",
     ensure           => present,
+  #url              => "https://bintray.com/artifact/download/jfrog/artifactory/jfrog-artifactory-oss-4.0.1.zip",
     url              => "${base_url}/jfrog-artifactory-oss-${version}.zip",
     purge_target     => true,
     follow_redirects => true,
