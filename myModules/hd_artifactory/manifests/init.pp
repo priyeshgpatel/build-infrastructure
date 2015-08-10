@@ -11,7 +11,7 @@ class hd_artifactory {
 
   include base::nginx::autohttps
 
-  $external_fqdn = hiera("external_fqdn", $fqdn)
+  $external_hostname = hiera("external_fqdn", $fqdn)
 
   file{ "/etc/nginx/conf.d/artifactory.conf":
     ensure  => file,
