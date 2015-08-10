@@ -38,3 +38,6 @@ mod "thd/hd_nagios",
 
 mod "thd/hd_sonar",
   :path => "myModules/hd_sonar"
+
+mod "thd/hd_artifactor",
+  :path => "myModules/hd_artifactory"

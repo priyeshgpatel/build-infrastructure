@@ -43,6 +43,11 @@ PATH
       thd-ssl_cert (>= 0)
 
 PATH
+  remote: myModules/hd_artifactory
+  specs:
+    thd-hd_artifactor (0.0.1)
+
+PATH
   remote: myModules/hd_gitlab
   specs:
     thd-hd_gitlab (0.0.1)
@@ -95,6 +100,7 @@ DEPENDENCIES
   puppetlabs-firewall (= 1.7.0)
   rtyler-jenkins (>= 0)
   thd-base (>= 0)
+  thd-hd_artifactor (>= 0)
   thd-hd_gitlab (>= 0)
   thd-hd_java (>= 0)
   thd-hd_jenkins (>= 0)
