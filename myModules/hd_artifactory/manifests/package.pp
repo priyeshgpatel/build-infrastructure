@@ -15,6 +15,7 @@ class hd_artifactory::package(
     checksum         => false,
     digest_type      => "sha1",
     digest_string    => $sha1,
+    require          => Class['base'],
     notify           => Exec['install_service'],
   }
 
