@@ -7,6 +7,7 @@ class hd_artifactory::package(
   include hd_java::oracle_jdk_8
 
   archive{ "artifactory-$version":
+    name             => "artifactory-oss-${version}}",
     ensure           => present,
     url              => "${base_url}/jfrog-artifactory-oss-${version}.zip",
     follow_redirects => true,
