@@ -15,7 +15,7 @@ class hd_artifactory::package(
     follow_redirects => true,
     target           => "/opt",
     extension        => "zip",
-    checksum         => false,
+    checksum         => true,
     digest_type      => "sha1",
     digest_string    => $sha1,
     require          => Class['base'],
