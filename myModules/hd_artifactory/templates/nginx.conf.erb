@@ -1,0 +1,25 @@
+#MANAGED BY PUPPET
+
+upstream app_artifactory {
+    server 127.0.0.1:8080;
+}
+server {
+    listen [::]:443;
+    listen 443;
+
+    include /etc/nginx/nginx-ssl.conf;
+
+    server_name <%= @external_hostname %>;
+
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Ssl on;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_pass http://app_artifactory$request_uri;
+        proxy_read_timeout 90;
+    }
+}

@@ -34,10 +34,4 @@ class hd_artifactory::package(
     command     => "/bin/bash /opt/artifactory-oss-$version/bin/installService.sh",
     require     => Class['hd_java::oracle_jdk_8']
   }
-
-  service{ 'artifactory':
-    ensure    => running,
-    require   => Exec['install_service'],
-    subscribe => Exec['install_service'],
-  }
 }
