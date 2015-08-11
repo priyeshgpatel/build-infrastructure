@@ -61,4 +61,5 @@ node 'artifactory.c.hd-build.internal' {
 node /^dk-gocd.*\.c\.hd-build\.internal$/ {
   include base
   include hd_go_cd
+  include hd_jenkins
 }
