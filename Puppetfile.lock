@@ -54,6 +54,11 @@ PATH
       thd-ssl_cert (>= 0)
 
 PATH
+  remote: myModules/hd_go_cd
+  specs:
+    thd-hd_go_cd (0.0.1)
+
+PATH
   remote: myModules/hd_java
   specs:
     thd-hd_java (0.0.1)
@@ -102,6 +107,7 @@ DEPENDENCIES
   thd-base (>= 0)
   thd-hd_artifactory (>= 0)
   thd-hd_gitlab (>= 0)
+  thd-hd_go_cd (>= 0)
   thd-hd_java (>= 0)
   thd-hd_jenkins (>= 0)
   thd-hd_nagios (>= 0)

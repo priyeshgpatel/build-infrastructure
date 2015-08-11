@@ -41,3 +41,6 @@ mod "thd/hd_sonar",
 
 mod "thd/hd_artifactory",
   :path => "myModules/hd_artifactory"
+
+mod "thd/hd_go_cd",
+  :path => "myModules/hd_go_cd"

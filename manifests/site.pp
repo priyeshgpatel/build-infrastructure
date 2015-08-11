@@ -8,6 +8,10 @@ Firewall {
   require => Class['base::fw_pre'],
 }
 
+node default {
+  include base
+}
+
 # puppetmaster node
 node 'puppetmaster.c.hd-build.internal' {
   include base
@@ -52,4 +56,9 @@ node 'artifactory.c.hd-build.internal' {
   include base
   include hd_nagios::client
   include hd_artifactory
+}
+
+node /^dk-gocd.*\.c\.hd-build\.internal$/ {
+  include base
+  include hd_go_cd
 }
