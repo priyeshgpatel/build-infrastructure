@@ -1,5 +1,6 @@
 class hd_sonar(
-  $sonar_jdbc = undef
+  $sonar_jdbc = undef,
+  $sonar_secret = undef
 ) {
 
   include hd_sonar::database
@@ -34,6 +35,22 @@ class hd_sonar(
       Class['maven::maven'],
       Class['hd_sonar::database']
     ],
+  }
+
+# set the sonar secret file
+  file{ '/opt/sonar-work/.sonar':
+    ensure  => directory,
+    owner   => sonar,
+    group   => sonar,
+    mode    => 0600,
+    require => Class['sonarqube'],
+  } ~>
+  file { '/opt/sonar-work/.sonar/sonar-secret.txt':
+    ensure  => file,
+    owner   => sonar,
+    group   => sonar,
+    mode    => 0600,
+    content => $sonar_secret,
   }
 
   sonarqube::plugin{ 'sonar-scm-activity':
