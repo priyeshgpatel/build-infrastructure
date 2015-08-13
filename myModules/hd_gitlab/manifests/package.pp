@@ -26,6 +26,21 @@ class hd_gitlab::package(
     ],
   }
 
+# create an apt-pin to keep this guy from nagging me, for now.
+# if I specified a version
+  if($gitlab_version != "installed") {
+    $pin_ensure = "present"
+  } else {
+    $pin_ensure = "absent"
+  }
+
+  apt::pin{ 'gitlab-ce-pin':
+    ensure    => $pin_ensure,
+    version   => $gitlab_version,
+    priority  => 500,
+    packages  => ['gitlab-ce'],
+  }
+  
   package{ 'gitlab-ce':
     ensure  => $gitlab_version,
     require => Apt::Source['gitlab-repo'],
