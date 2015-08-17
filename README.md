@@ -14,3 +14,7 @@ Guide: https://github.com/TomPoulton/hiera-eyaml#configuration-file-for-eyaml
 * http://ttboj.wordpress.com/2013/02/20/automatic-hiera-lookups-in-puppet-3-x/
 * http://librarian-puppet.com/
 * https://forge.puppetlabs.com/puppetlabs/firewall
+
+## TODO LIST
+- [ ] SSL Root cert needs to be added to the JDK: [see this](https://azure.microsoft.com/en-us/documentation/articles/java-add-certificate-ca-store/)
+- [ ] Sonar Secrets file needs to be added to anything that's going to run the analysis
