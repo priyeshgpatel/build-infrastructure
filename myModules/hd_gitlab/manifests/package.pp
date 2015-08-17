@@ -40,7 +40,7 @@ class hd_gitlab::package(
     priority  => 500,
     packages  => ['gitlab-ce'],
   }
-  
+
   package{ 'gitlab-ce':
     ensure  => $gitlab_version,
     require => Apt::Source['gitlab-repo'],
