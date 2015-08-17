@@ -18,4 +18,3 @@ Guide: https://github.com/TomPoulton/hiera-eyaml#configuration-file-for-eyaml
 ## TODO LIST
 - [ ] SSL Root cert needs to be added to the JDK: [see this](https://azure.microsoft.com/en-us/documentation/articles/java-add-certificate-ca-store/)
 - [ ] Sonar Secrets file needs to be added to anything that's going to run the analysis
-- 
