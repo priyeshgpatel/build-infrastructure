@@ -36,6 +36,7 @@ class hd_gitlab(
   }
 
 # have to link the certs to /etc/gitlab/ssl
+  #TODO: the ssl certs should match the external_hostname fact (if it were a fact) :(
   file{ '/etc/gitlab/ssl':
     ensure  => directory,
     owner   => root,
@@ -44,12 +45,12 @@ class hd_gitlab(
     require => Package['gitlab-ce'],
     before  => File['/etc/gitlab/gitlab.rb'],
   } ~>
-  file{ '/etc/gitlab/ssl/git.hdtechlab.com.crt':
+  file{ "/etc/gitlab/ssl/$external_hostname.crt":
     ensure => link,
     target => '/etc/ssl/certs/build.gc.hdtechlab.com.crt',
     notify => Exec['gitlab-reconfigure'],
   } ~>
-  file{ '/etc/gitlab/ssl/git.hdtechlab.com.key':
+  file{ "/etc/gitlab/ssl/$external_hostname.key":
     ensure => link,
     target => '/etc/ssl/keys/build.gc.hdtechlab.com.key',
     notify => Exec['gitlab-reconfigure'],
