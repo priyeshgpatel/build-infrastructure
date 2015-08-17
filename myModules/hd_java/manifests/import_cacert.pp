@@ -7,6 +7,7 @@ class hd_java::import_cacert(
 # Must have the SSL cert on the system first
   include ssl_cert
 
+  # TODO: this name is terrible
   java_ks{ 'hdtechlabroot':
     certificate => $cacert_file,
     ensure      => present,
