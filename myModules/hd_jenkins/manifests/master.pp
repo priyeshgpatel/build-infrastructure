@@ -45,6 +45,14 @@ class hd_jenkins::master(
     ],
   }
 
+  # have to set a firewall rule to allow a jenkins slave port access
+  # this is the configured port in jenkins global security, since we're accessing it over the public interface.
+  firewall{ '110 jenkins slave access':
+    port   => [33033],
+    proto  => tcp,
+    action => accept,
+  }
+
 # this class already explicitly uses the jenkins repo, so I'm not sure why versions are vanishing
 # switching to the LTS version of jenkins for less irritating updates
   class{ 'jenkins':
