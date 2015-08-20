@@ -58,8 +58,7 @@ node 'artifactory.c.hd-build.internal' {
   include hd_artifactory
 }
 
-node /^dk-gocd.*\.c\.hd-build\.internal$/ {
+node "dkowis-ubuntu-puppets.c.hd-build.internal" {
   include base
-  include hd_go_cd
-  include hd_jenkins
+  include hd_jenkins::slave
 }
