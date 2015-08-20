@@ -47,6 +47,7 @@ class hd_jenkins::master(
 
   # have to set a firewall rule to allow a jenkins slave port access
   # this is the configured port in jenkins global security, since we're accessing it over the public interface.
+  # NOTE: cloud providers might also require additional firewall rules
   firewall{ '110 jenkins slave access':
     port   => [33033],
     proto  => tcp,

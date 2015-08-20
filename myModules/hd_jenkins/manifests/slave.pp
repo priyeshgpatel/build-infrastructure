@@ -9,14 +9,15 @@ class hd_jenkins::slave(
   include hd_jenkins
 
   class{ 'jenkins::slave':
-    masterurl         => $master_url,
-    version           => "1.15",
-    ui_user           => $jenkins_username,
-    ui_pass           => $jenkins_password,
-    manage_slave_user => false,
-    slave_user        => "jenkins",
-    slave_home        => $jenkins_home,
-    executors         => $executors,
+    masterurl                => $master_url,
+    version                  => "1.15",
+    ui_user                  => $jenkins_username,
+    ui_pass                  => $jenkins_password,
+    manage_slave_user        => false,
+    slave_user               => "jenkins",
+    slave_home               => $jenkins_home,
+    executors                => $executors,
+    disable_ssl_verification => true,
   }
 
 }
