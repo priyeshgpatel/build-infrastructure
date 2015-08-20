@@ -8,6 +8,7 @@ class hd_java::import_cacert(
   include ssl_cert
 
   # TODO: this name is terrible
+  #TODO: this needs to also require the JDK being installed first. DERP
   java_ks{ 'hdtechlabroot':
     certificate => $cacert_file,
     ensure      => present,
