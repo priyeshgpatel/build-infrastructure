@@ -13,7 +13,7 @@ class hd_jenkins::slave(
     version           => "1.15",
     ui_user           => $jenkins_username,
     ui_pass           => $jenkins_password,
-    manage_slave_user => 0,
+    manage_slave_user => false,
     slave_user        => "jenkins",
     slave_home        => $jenkins_home,
     executors         => $executors,
