@@ -1,5 +1,4 @@
 define hd_jenkins::gcloud_svc_account(
-  $name = undef,
   $creds_json = undef,
 ) {
   include hd_jenkins::gcloud_cred_storage

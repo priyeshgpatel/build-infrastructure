@@ -24,6 +24,7 @@ node 'jenkins-master.c.hd-build.internal' {
   include hd_jenkins::master
 # I want the master to build java projects for me
   include hd_jenkins::builders::java
+  include hd_jenkins::hd_build_access
 
 # jenkins needs to send emails too
   include base::mail_sender
@@ -63,6 +64,8 @@ node 'artifactory.c.hd-build.internal' {
 node "dkowis-ubuntu-puppets.c.hd-build.internal" {
   include base
   include hd_jenkins::builders::images
+  include hd_jenkins::hd_build_access
+
 
   hd_jenkins::slave{"test-dkowis-slave":
     labels => "images",
