@@ -12,17 +12,18 @@ class hd_jenkins(
 # ensure we have a java installed
   include hd_java::oracle_jdk_8
 
-  # also need to include the root cert in the oracle keystore root
+# also need to include the root cert in the oracle keystore root
   include hd_java::import_cacert
 
 #jenkins master needs a git config so that it can talk to the scm plugin
 # Also needed by any of the release builds for when they do a git push
   file{ "${jenkins_home}/.gitconfig":
-    ensure => file,
-    mode   => 0664,
-    owner  => jenkins,
-    group  => jenkins,
-    source => "puppet:///modules/hd_jenkins/jenkins-gitconfig",
+    ensure  => file,
+    mode    => 0664,
+    owner   => jenkins,
+    group   => jenkins,
+    source  => "puppet:///modules/hd_jenkins/jenkins-gitconfig",
+    require => User["jenkins"],
   }
 
   group { 'jenkins':
