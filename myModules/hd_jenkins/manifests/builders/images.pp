@@ -1,4 +1,4 @@
-class hd_jenkins::image_builder {
+class hd_jenkins::builders::images {
 # stuff that's needed to set up a box to build images currently using packer
 #packer is distributed as a zip file!
   $packer_version = "0.8.5"

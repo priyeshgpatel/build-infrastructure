@@ -1,4 +1,4 @@
-class hd_jenkins::java_builder(
+class hd_jenkins::builders::java(
   $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
   $sonar_secret = undef
 ) {
