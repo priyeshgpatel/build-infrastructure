@@ -22,6 +22,8 @@ node 'puppetmaster.c.hd-build.internal' {
 node 'jenkins-master.c.hd-build.internal' {
   include base
   include hd_jenkins::master
+  # I want the master to build java projects for me
+  include hd_jenkins::java_builder
 
 # jenkins needs to send emails too
   include base::mail_sender
