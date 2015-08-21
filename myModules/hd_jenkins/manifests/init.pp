@@ -6,12 +6,6 @@ class hd_jenkins(
   $jenkins_key_pub = undef
 ) {
 
-# class to ensure jenkins is installed
-# this will default to gradle 2.1, have to use a different syntax to get it with other versions
-# or set the values in hiera
-  include hd_jenkins::build_tools::gradle
-  include hd_jenkins::build_tools::maven
-
 # include packages that plugins might need to do work (rpm, other system packages that your build might need)
   include hd_jenkins::build_tools::build_packages
 
