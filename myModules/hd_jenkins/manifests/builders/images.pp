@@ -23,7 +23,7 @@ class hd_jenkins::builders::images {
   file{ "packer-symlink":
     path   => "/opt/packer",
     ensure => link,
-    target => "/opt/packer-${packer_version}}",
+    target => "/opt/packer-${packer_version}",
   }
 
 #packer path in /etc/profile.d
