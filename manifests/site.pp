@@ -60,5 +60,4 @@ node 'artifactory.c.hd-build.internal' {
 
 node "dkowis-ubuntu-puppets.c.hd-build.internal" {
   include base
-  include hd_jenkins::slave
 }
