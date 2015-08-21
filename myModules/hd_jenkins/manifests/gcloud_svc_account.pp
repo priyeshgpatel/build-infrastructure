@@ -5,7 +5,7 @@ define hd_jenkins::gcloud_svc_account(
 
   $jenkins_home = hiera('hd_jenkins::jenkins_home', undef)
 
-  file{ "${jenkins_home}/gcloud_creds/gcloud-${name}":
+  file{ "${jenkins_home}/gcloud_creds/gcloud-${name}.json":
     ensure  => file,
     content => $creds_json,
     owner   => jenkins,
