@@ -64,7 +64,7 @@ node "dkowis-ubuntu-puppets.c.hd-build.internal" {
   include base
   include hd_jenkins::builders::images
 
-  hd_jenkins::slave{ "test-dkowis-slave":
+  hd_jenkins::slave{"test-dkowis-slave":
     labels => "images",
     description => "Test Jenkins Slave Work"
   }

@@ -10,7 +10,7 @@ define hd_jenkins::slave(
 ) {
   include hd_jenkins
 
-  class{ "jenkins::slave::$name":
+  class{ "jenkins::slave":
     slave_name               => $name,
     masterurl                => $master_url,
     version                  => "1.15",
