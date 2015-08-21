@@ -11,6 +11,7 @@ define hd_jenkins::slave(
   include hd_jenkins
 
   class{ "jenkins::slave::$name":
+    slave_name               => $name,
     masterurl                => $master_url,
     version                  => "1.15",
     ui_user                  => $jenkins_username,
