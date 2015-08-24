@@ -61,7 +61,7 @@ node 'artifactory.c.hd-build.internal' {
   include hd_artifactory
 }
 
-node "dkowis-ubuntu-puppets.c.hd-build.internal" {
+node "image1-slave.c.hd-build.internal" {
   include base
   include hd_jenkins::builders::images
   include hd_jenkins::hd_build_access
