@@ -64,4 +64,12 @@ class puppet_master {
     minute  => "*/15",
     require => File["/usr/local/bin/puppet-repo-sync.sh"]
   }
+
+  file{ "/etc/puppet/autosign.conf":
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => 0600,
+    source => "puppet:///modules/puppet_master/autosign.conf",
+  }
 }
