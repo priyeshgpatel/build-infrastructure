@@ -67,8 +67,8 @@ node "image1-slave.c.hd-build.internal" {
   include hd_jenkins::hd_build_access
 
 
-  hd_jenkins::slave{"test-dkowis-slave":
+  hd_jenkins::slave{"image1-slave":
     labels => "images",
-    description => "Test Jenkins Slave Work"
+    description => "Slave for building images"
   }
 }
