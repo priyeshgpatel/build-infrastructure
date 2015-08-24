@@ -68,8 +68,8 @@ class puppet_master {
   file{ "/etc/puppet/autosign.conf":
     ensure => file,
     owner  => root,
-    group  => root,
-    mode   => 0600,
+    group  => puppet,
+    mode   => 0640,
     source => "puppet:///modules/puppet_master/autosign.conf",
   }
 }
