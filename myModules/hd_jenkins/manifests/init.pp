@@ -3,7 +3,10 @@
 class hd_jenkins(
   $jenkins_home = hiera('hd_jenkins::jenkins_home', undef),
   $jenkins_key = undef,
-  $jenkins_key_pub = undef
+  $jenkins_key_pub = undef,
+  $artifactory_secret = hiera('hd_jenkins::templates::artifactory_secret', undef),
+  $artifactory_username = hiera('hd_jenkins::templates::artifactory_username', undef),
+  $artifactory_hostname = hiera('hd_jenkins::templates::artifactory_hostname', undef)
 ) {
 
 # include packages that plugins might need to do work (rpm, other system packages that your build might need)

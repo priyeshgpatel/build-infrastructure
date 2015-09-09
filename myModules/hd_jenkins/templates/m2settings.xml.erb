@@ -5,7 +5,7 @@
     <servers>
     <!-- Set up any maven deployment privileges in here -->
 	<!-- need to add artifactory repos here -->
-    <!-- checking for other variables scope['hd_jenkins::templates::artifactory_secret']  -->
+   
 	</servers>
 </settings>
 <!--
@@ -14,13 +14,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <servers>
     <server>
-      <username>scope['hd_jenkins::templates::artifactory_username']</username>
-      <password>scope['hd_jenkins::templates::artifactory_secret']</password>
+      <username>@artifactory_username</username>
+      <password>@artifactory_secret</password>
       <id>central</id>
     </server>
     <server>
-      <username>scope['hd_jenkins::templates::artifactory_username']</username>
-      <password>scope['hd_jenkins::templates::artifactory_secret']</password>
+      <username>@artifactory_username</username>
+      <password>@artifactory_secret</password>
       <id>snapshots</id>
     </server>
   </servers>
@@ -33,13 +33,13 @@
           </snapshots>
           <id>central</id>
           <name>libs-release</name>
-          <url>scope['hd_jenkins::templates::artifactory_hostname']/artifactory/libs-release</url>
+          <url>@artifactory_hostname/artifactory/libs-release</url>
         </repository>
         <repository>
           <snapshots />
           <id>snapshots</id>
           <name>libs-snapshot</name>
-          <url>scope['hd_jenkins::templates::artifactory_hostname']/artifactory/libs-snapshot</url>
+          <url>@artifactory_hostname/artifactory/libs-snapshot</url>
         </repository>
       </repositories>
       <pluginRepositories>
@@ -49,13 +49,13 @@
           </snapshots>
           <id>central</id>
           <name>plugins-release</name>
-          <url>scope['hd_jenkins::templates::artifactory_hostname']/artifactory/plugins-release</url>
+          <url>@artifactory_hostname/artifactory/plugins-release</url>
         </pluginRepository>
         <pluginRepository>
           <snapshots />
           <id>snapshots</id>
           <name>plugins-snapshot</name>
-          <url>scope['hd_jenkins::templates::artifactory_hostname']/artifactory/plugins-snapshot</url>
+          <url>@artifactory_hostname/artifactory/plugins-snapshot</url>
         </pluginRepository>
       </pluginRepositories>
       <id>artifactory</id>
