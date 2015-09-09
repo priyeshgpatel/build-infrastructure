@@ -7,15 +7,13 @@
 
 pushd /srv/puppet 2>&1 > /dev/null &&
 
-#TODO: this isn't 100% reliable, need to rewrite it and make it more robust
-if [ "`git log --pretty=%H ...refs/heads/master^`" != "`git ls-remote origin -h refs/heads/master | cut -f1`" ]; then
-  # Pull is required
-  # Go ahead and pull the repo and update the modules
-  # capture the output, in case something fails
-  TEMP_FILE=`mktemp`
-  git pull -q 2>&1 > ${TEMP_FILE} &&
-  librarian-puppet install 2>&1 >> ${TEMP_FILE} || cat ${TEMP_FILE}
 
-  #Clean up our temp file now that we've cat it (if we needed to)
-  rm ${TEMP_FILE}
-fi
+# Just always do the work, because it's not worth the effort if it fails
+# Go ahead and pull the repo and update the modules
+# capture the output, in case something fails
+TEMP_FILE=`mktemp`
+git pull -q 2>&1 > ${TEMP_FILE} &&
+librarian-puppet install 2>&1 >> ${TEMP_FILE} || cat ${TEMP_FILE}
+
+#Clean up our temp file now that we've cat it (if we needed to)
+rm ${TEMP_FILE}
