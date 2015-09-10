@@ -156,7 +156,14 @@ gitlab_rails['gitlab_email_reply_to'] = 'noreply@<%= external_hostname %>'
 # this is probably as good as it's going to get right now
  gitlab_rails['rack_attack_git_basic_auth'] = {
    'enabled' => true,
-   'ip_whitelist' => ["127.0.0.1", '207.11.113.30'],
+   'ip_whitelist' => [
+           "127.0.0.1",
+           '165.130.136.208',
+           '165.130.136.210',
+           '207.11.113.29',
+           '207.11.113.30',
+           '207.11.113.31'
+],
    'maxretry' => 10,
    'findtime' => 60,
    'bantime' => 3600
