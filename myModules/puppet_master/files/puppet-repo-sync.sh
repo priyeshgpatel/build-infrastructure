@@ -12,7 +12,7 @@ pushd /srv/puppet 2>&1 > /dev/null &&
 # Go ahead and pull the repo and update the modules
 # capture the output, in case something fails
 TEMP_FILE=`mktemp`
-git pull -q 2>&1 > ${TEMP_FILE} &&
+git pull -q 2>&1 > ${TEMP_FILE}
 librarian-puppet install 2>&1 >> ${TEMP_FILE} || cat ${TEMP_FILE}
 
 #Clean up our temp file now that we've cat it (if we needed to)
